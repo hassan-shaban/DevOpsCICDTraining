@@ -10,3 +10,17 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v4
+
+      - name: setup .Net
+        uses: actions/setup-dotnet@V4
+        with:
+          dotnet-version: 8.0.0.x
+
+      - name: restore dependencies 
+        run: dotnet restore DevOpsCICDTraining.Tests/DevOpsCICDTraining.Tests.csproj
+
+      - name: build
+        run: dotnet build DevOpsCICDTraining.Tests/DevOpsCICDTraining.Tests.csproj  --no-restore
+
+      - name: test
+        run: dotnet test DevOpsCICDTraining.Tests/DevOpsCICDTraining.Tests.csproj --no-build --no-restore
