@@ -20,7 +20,7 @@ jobs:
           dotnet-version: ${{ matrix.dotnet-version }}
 
       - name: Show .NET version
-        run: dotnet --version
+        run: dotnet --list-sdks
 
       - name: restore dependencies 
         run: dotnet restore DevOpsCICDTraining.Tests/DevOpsCICDTraining.Tests.csproj
