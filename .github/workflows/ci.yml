@@ -22,8 +22,8 @@ jobs:
       - name: Show .NET version
         run: |
           echo "Matrix SDK: ${{ matrix.dotnet-version }}"
-          which dotnet
           dotnet --version
+          dotnet --list-sdks
 
       - name: restore dependencies 
         run: dotnet restore DevOpsCICDTraining.Tests/DevOpsCICDTraining.Tests.csproj
